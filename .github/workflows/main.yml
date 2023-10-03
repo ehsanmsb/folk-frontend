@@ -1,0 +1,12 @@
+name: folk-frontend-automation
+on: workflow_dispatch
+jobs:
+  pre-build:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Print Greeting
+        run: |
+            echo "Hello World!"
+            echo "Folk Frontend"
+      - name: Print Goodbye
+        run: echo "Done Okey Goodbye"
