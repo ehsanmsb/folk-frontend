@@ -22,6 +22,12 @@ jobs:
         run: |
           echo ${{ steps.version.outputs.previous-version }}
 
+      - name: Tag commit
+        uses: tvdias/github-tagger@v0.0.1
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          tag: ${{ steps.version.outputs.version }}
+
   build:
     runs-on: ubuntu-latest
     steps:
