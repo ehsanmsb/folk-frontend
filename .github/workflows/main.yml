@@ -1,12 +1,15 @@
 name: folk-frontend-automation
 on: workflow_dispatch
 jobs:
-  pre-build:
-    runs-on: ubuntu-20.04
+  get-code:
+    runs-on: ubuntu-latest
     steps:
-      - name: Print Greeting
-        run: |
-            echo "Hello World!"
-            echo "Folk Frontend"
-      - name: Print Goodbye
-        run: echo "Done Okey Goodbye"
+      - name: get frontend code
+        uses: actions/checkout@v4
+      - name: install ndoe on runner
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.17
+      - name: install dependecies
+        run: npm ci
+
