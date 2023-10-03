@@ -28,6 +28,7 @@ jobs:
           tag: ${{ steps.version.outputs.version }}
 
   build:
+    needs: versioning
     runs-on: ubuntu-latest
     steps:
       - name: get frontend code
